@@ -1,0 +1,166 @@
+import 'package: flutter/material.dart';
+//package:flutter/material.dart ifadesini projeye import edince, material.dart dosyasındaki widget'lar ve kaynaklar, Flutter uygulamasında kullanılabilir hale gelir.
+//Bu widget'lar, buttons, text fields, lists, menus, alerts, ve diğer kullanıcı arayüzü elemanlarını içerir.
+
+main(){
+}
+//The main() method bir programın başlatılmasını ve çalıştırılmasını sağlayan ana methoddur. 
+
+main(){
+  runApp();
+}
+//runApp() fonksiyonu, Flutter uygulamasının çalışmasını başlatır ve kök widget'ı belirler. Bu fonksiyon, widget ağacını oluşturur ve ekranda görüntülemek için gerekli adımları gerçekleştirir.
+
+main(){
+  runApp(MyApp());
+}
+//runApp() fonksiyonu MyApp adlı bir widget'ı çalıştırır. Bu widget, uygulamanın genel tasarımını ve diğer widget'ları içeren ana widget ağacını temsil eder.
+
+main(){
+  runApp(MyApp());
+}
+class MyApp extends StatelessWidget{
+}
+//StatelessWidget, Widget class'ından türetilmiş bir sınıftır. Bu widget, uygulama içerisinde değişken tutmayan, ve değişmeyen görünüm sunan widget'tır.
+
+main(){
+  runApp(MyApp());
+}
+class MyApp extends StatelessWidget{
+  MyApp({super.key});
+}
+//Widget class'ının sahip olduğu bir key özelliği vardır: "final Key? key;" final: bu değişkene değer atandığında o değer sonradan değiştirilemez, ?: bu değişkene değer atanmadığında da nesne üretebiliriz.
+//StatefulWidget ve StatelessWidget sınıfları Widget class'ından extend edilir/üretilir. Dolaylı oılarak bu sınıflardan extend edilen diğer tüm class'lar/nesneler key değerini de almalıdır.
+//key değeriyle, her bir widget'ın state değeri tutulur. ve yaşamdöngüsünde o widget'a ulaşabilmek için key değeri kullanılır.
+
+main(){
+  runApp(MyApp());
+}
+class MyApp extends StatelessWidget{
+  MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+}
+//Widget class'ının sahip olduğu bir method vardır: build(); 
+//build() metodu, widget'in nasıl görüntüleneceğini tanımlayan ve kullanıcı arayüzünü oluşturan bir fonksiyondur ve her çağrıldığında widget'in görüntüsünü oluşturur ve döndürür.
+
+//MaterialApp widget'ını düzgün şekilde oluşturmak için BuildContext bilgisine ihtiyaç duyar.
+//context bilgisi widget'lar arasındaki iletişimi kurmak için kullanılır.
+
+main(){
+  runApp(MyApp());
+}
+class MyApp extends StatelessWidget{
+  MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: "First Flutter App",
+      theme: ThemeData(primarySwatch: Colors.red),
+      home: const FirstScreen(),
+    );
+}
+//MaterialApp widget'ı, Flutter uygulamasının en üst seviye widget'ı olarak, uygulamanın genel özelliklerini belirlemek ve uygulama düzeyinde yapılandırmalar yapmak için kullanılır. 
+//Örneğin, uygulamanın başlık çubuğunu, tema ayarlarını, dil seçeneklerini ve yönlendirme (routing) gibi özellikleri belirlemek için MaterialApp() widget'ını kullanırız.
+//MaterialApp() widget'ı, diğer widget'ları içeren bir widget ağacı oluşturur ve bu ağacı ekrana yansıtarak uygulamayı ekranda görüntüler.
+
+//MaterialApp() widget'ı oluşturulurken başlık (title), tema (theme) ve ana sayfa (home) özellikleri belirtilmiştir. 
+//title: uygulama adını, theme: uygulamanın genel görünümünü, home: ana ekranını belirlemek için kullanılır. 
+
+
+main(){
+  runApp(MyApp());
+}
+class MyApp extends StatelessWidget{
+  MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: "First Flutter App",
+      theme: ThemeData(primarySwatch: Colors.red),
+      home: const FirstScreen(),
+    );
+}
+class FirstScreen extends StatefulWidget{
+  FirstScreen({super.key});
+}
+//StatefulWidget, Widget class'ından türetilmiş bir sınıftır. Bu widget uygulama içerisinde değişken tutan(state), bu değişkene bağlı olarak görünümü güncelleyebilen widget'tır.
+
+main(){
+  runApp(MyApp());
+}
+class MyApp extends StatelessWidget{
+  MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: "First Flutter App",
+      theme: ThemeData(primarySwatch: Colors.red),
+      home: const FirstScreen(),
+    );
+}
+class FirstScreen extends StatefulWidget{
+  FirstScreen({super.key});
+
+  @override
+  State <FirstScreen> createState() => _FirstScreenState();
+}
+//StatefulWidget sınıfı, iki ana bölümden oluşur: widget ve state. 
+//Widget kısmı -> FirstScreen, State kısmı  -> _FirstScreenState
+//MaterialApp widget'ı içerisindeki "home" özelliğine gönderilen kısım burasıdır.
+
+main(){
+  runApp(MyApp());
+}
+class MyApp extends StatelessWidget{
+  MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: "First Flutter App",
+      theme: ThemeData(primarySwatch: Colors.red),
+      home: const FirstScreen(),
+    );
+}
+class FirstScreen extends StatefulWidget{
+  FirstScreen({super.key});
+
+  @override
+  State <FirstScreen> createState() => _FirstScreenState();
+}
+class _FirstScreenState extends State<FirstScreen>{
+   @override
+   Widget build(BuildContext context){
+     return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text ("Push the Button:"),
+            Text ("$_counter")]
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _incrementCounter,
+        child: const Icon(Icons.add),
+      ),
+    );      
+   }
+}
+//_FirstScreenState class'ı state sınıfından üretilen nesne/class'tır. Bu state sınıfı genellikle ayrı bir sınıf olarak tanımlanır ve StatefulWidget sınıfından türetilir.
+//State sınıfı, setState() metodunu kullanarak durumu güncelleyebilir ve widget'in yeniden oluşturulmasını tetikleyebilir.
+//build() methoduyla FirstScreen sınıfının yani ana ekranın görüntüsü oluşturulur.
+
+//Scaffold widget'ı, bir uygulama sayfasının veya ekranının temel yapısını oluşturmak için kullanılır. 
+//Scaffold, kullanıcı arayüzünde bir iskele görevi görerek çeşitli bileşenleri bir araya getirir ve genel bir düzen sağlar.
+//AppBar: üst bilgi çubuğu
+//Body: sayfanın ana içeriğini içerir
+//FloatingActionButton: hızlı eylemler için
